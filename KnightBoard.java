@@ -67,7 +67,12 @@ public class KnightBoard{
   //@throws IllegalArgumentException when either parameter is negative or out of bounds
   //@returns true when the board is solvable from the specified starting position
   public boolean solve(int startingRow, int startingCol){
-
+    if (!isBlank()){
+      throw new IllegalStateException("The board must be empty to solve");
+    }
+    if (startingRow < 0 || startingCol < 0 || startingRow >= rlength || startingCol >= clength){
+      throw new IllegalArgumentException("StartingRow or StartingCol is out of bounds");
+    }
   }
 
   //@throws IllegalStateException when the board contains non-zero values
