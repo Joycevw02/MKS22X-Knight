@@ -25,7 +25,29 @@ public class KnightBoard{
   //leading spaces on single digit numbers            8  9 10 12
   //For two digit numbers, put a leading space       13 14  5 16
   public String toString(){
-
+    String ans = "";
+    if (isBlank()){
+      for (int row = 0; row < rlength; row ++){
+        for (int column = 0; column < clength; column ++){
+          ans += "_ ";
+        }
+        ans += "\n";
+      }
+    }
+    else{
+      for (int row = 0; row < rlength; row ++){
+        for (int column = 0; column < clength; column ++){
+          if (board[row][column] < 10){
+            ans += " " + board[row][column] + " ";
+          }
+          else{
+            ans += board[row][column] + " ";
+          }
+        }
+        ans += "\n";
+      }
+    }
+    return ans;
   }
 
   private boolean isBlank(){
