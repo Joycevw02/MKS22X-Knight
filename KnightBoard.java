@@ -1,8 +1,23 @@
 public class KnightBoard{
+
+  private int[][] board;
+  private int rlength; //Row length
+  private int clength; //Column length
+
   //@throws IllegalArgumentException when either parameter is <= 0.
   //initialize the board to the correct size and make them all 0's
   public KnightBoard(int startingRows, int startingCols){
-
+    if (startingRows <= 0 || startingCols <= 0){
+      throw new IllegalArgumentException("StartingRows and StartingCols should both be positive numbers");
+    }
+    board = new int[startingRows][startingCols];
+    rlength = startingRows;
+    clength = startingCols;
+    for (int row = 0; row < startingRows; row ++){
+      for (int column = 0; column < startingCols; column ++){
+        board[row][column] = 0;
+      }
+    }
   }
 
   //Blank boards displays 0's as undrscores           1  2 15  6
