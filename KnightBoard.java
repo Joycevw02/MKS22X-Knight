@@ -28,6 +28,10 @@ public class KnightBoard{
 
   }
 
+  private boolean isBlank(){
+    
+  }
+
   //Modifies the board by labeling the moves from 1 (at startingRow, startingCol)
   //up to the area of the board in proper knight move steps
   //@throws IllegalStateException when the board contains non-zero values
