@@ -29,7 +29,14 @@ public class KnightBoard{
   }
 
   private boolean isBlank(){
-    
+    for (int row = 0; row < rlength; row ++){
+      for (int column = 0; column < clength; column ++){
+        if (board[row][column] != 0){
+          return false;
+        }
+      }
+    }
+    return true;
   }
 
   //Modifies the board by labeling the moves from 1 (at startingRow, startingCol)
