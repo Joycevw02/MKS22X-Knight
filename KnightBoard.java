@@ -1,8 +1,9 @@
 public class KnightBoard{
 
-  private int[][] board;
+  private int[][] board; //The board returned
   private int rlength; //Row length
   private int clength; //Column length
+  private int[][] moves; //Records the number of moves possible
 
   //@throws IllegalArgumentException when either parameter is <= 0.
   //initialize the board to the correct size and make them all 0's
@@ -22,6 +23,10 @@ public class KnightBoard{
         board[row][column] = 0;
       }
     }
+  }
+
+  private void moves(){
+    
   }
 
   //Blank boards displays 0's as undrscores           1  2 15  6
@@ -93,6 +98,8 @@ public class KnightBoard{
   //Suggestion
   //Level is the number of the knight
   private boolean solveH(int row, int col, int level){
-
+    if (level > (rlength * clength)){
+      return true;
+    }
   }
 }
