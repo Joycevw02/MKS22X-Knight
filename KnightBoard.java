@@ -26,7 +26,7 @@ public class KnightBoard{
   }
 
   private void moves(){
-    
+
   }
 
   //Blank boards displays 0's as undrscores           1  2 15  6
