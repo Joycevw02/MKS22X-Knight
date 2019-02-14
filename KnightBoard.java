@@ -101,5 +101,17 @@ public class KnightBoard{
     if (level > (rlength * clength)){
       return true;
     }
+    board[row][col] = level;
+    if (row + 2 < rlength){
+      if (col - 1 >= 0){
+        return solveH(row + 2, col - 1, level + 1);
+      }
+      if (col + 1 < clength){
+        return solveH(row + 2, col + 1, level + 1);
+      }
+    }
+    if (row - 2 >= 0){
+      if col
+    }
   }
 }
