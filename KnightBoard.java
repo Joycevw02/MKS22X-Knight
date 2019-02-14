@@ -7,12 +7,16 @@ public class KnightBoard{
   //@throws IllegalArgumentException when either parameter is <= 0.
   //initialize the board to the correct size and make them all 0's
   public KnightBoard(int startingRows, int startingCols){
+    //If either starting rows or starting cols is less than or equal to zero,
+    //throw an illegal argument exception
     if (startingRows <= 0 || startingCols <= 0){
       throw new IllegalArgumentException("StartingRows and StartingCols should both be positive numbers");
     }
+    //Initialize the board to the correct sizes and store the sizes for future use
     board = new int[startingRows][startingCols];
     rlength = startingRows;
     clength = startingCols;
+    //Fill the empty board in with 0's
     for (int row = 0; row < startingRows; row ++){
       for (int column = 0; column < startingCols; column ++){
         board[row][column] = 0;
@@ -26,6 +30,7 @@ public class KnightBoard{
   //For two digit numbers, put a leading space       13 14  5 16
   public String toString(){
     String ans = "";
+    //If the board is blank, return a string with _'s in place of the 0's
     if (isBlank()){
       for (int row = 0; row < rlength; row ++){
         for (int column = 0; column < clength; column ++){
@@ -34,6 +39,7 @@ public class KnightBoard{
         ans += "\n";
       }
     }
+    //If not, run through the array list and return the numbers at each box
     else{
       for (int row = 0; row < rlength; row ++){
         for (int column = 0; column < clength; column ++){
@@ -51,6 +57,7 @@ public class KnightBoard{
   }
 
   private boolean isBlank(){
+    //Loop through the board to check if it is empty
     for (int row = 0; row < rlength; row ++){
       for (int column = 0; column < clength; column ++){
         if (board[row][column] != 0){
@@ -73,6 +80,7 @@ public class KnightBoard{
     if (startingRow < 0 || startingCol < 0 || startingRow >= rlength || startingCol >= clength){
       throw new IllegalArgumentException("StartingRow or StartingCol is out of bounds");
     }
+    return solveH(startingRow, startingCol, 1);
   }
 
   //@throws IllegalStateException when the board contains non-zero values
