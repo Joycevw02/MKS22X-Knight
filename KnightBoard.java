@@ -87,9 +87,9 @@ public class KnightBoard{
   //@throws IllegalStateException when the board contains non-zero values
   //@throws IllegalArgumentException when either parameter is negative or out of bounds
   //@returns the number of solutions from the starting position specified
-  public int countSolutions(int startingRow, int startingCol){
-
-  }
+//  public int countSolutions(int startingRow, int startingCol){
+//
+//  }
 
   //Suggestion
   //Level is the number of the knight
@@ -107,7 +107,18 @@ public class KnightBoard{
       }
     }
     if (row - 2 >= 0){
-      if col
+      if (col - 1 >= 0){
+        return solveH(row - 2, col - 1, level + 1);
+      }
+      if (col + 1 < clength){
+        return solveH(row - 2, col + 1, level + 1);
+      }
     }
+    return false;
+  }
+
+  public void main(String[] args){
+    KnightBoard test = new KnightBoard(5,5);
+    System.out.println(solve(3,3));
   }
 }
