@@ -3,6 +3,8 @@ public class KnightBoard{
   private int[][] board; //The board returned
   private int rlength; //Row length
   private int clength; //Column length
+  private int[] moves = new int[16];
+  moves = {1,2,1,-2,-1,2,-1,-2,2,1,2,-1,-2,1,-2,-1};
 
   //@throws IllegalArgumentException when either parameter is <= 0.
   //initialize the board to the correct size and make them all 0's
