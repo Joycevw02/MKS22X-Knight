@@ -104,6 +104,7 @@ public class KnightBoard{
           return true;
         }
       }
+      remove(row, col);
     }
     return false;
   }
