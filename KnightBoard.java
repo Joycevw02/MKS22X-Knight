@@ -102,6 +102,7 @@ public class KnightBoard{
 
     return false;
   }
+
   public boolean add(int row, int col, int level){
     //If the row and column is within the board...
     if (row >= 0 && row < rlength && col >= 0 && col < clength){
@@ -116,6 +117,10 @@ public class KnightBoard{
       }
     }
     return false;
+  }
+
+  public boolean remove(int row, int col){
+    
   }
   public void main(String[] args){
     KnightBoard test = new KnightBoard(5,5);
