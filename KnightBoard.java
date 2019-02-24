@@ -108,15 +108,21 @@ public class KnightBoard{
     int ans = 0;
     //If it is possible to add a knight at this posiion....
     if (add(row, col, level)) {
-      if (level > (rlength * clength)){
+      //If the level is equal to the number of squares on the board, remove the
+      //added knight and return 1 (base case)
+      if (level == (rlength * clength)){
         remove(row, col);
         return 1;
       }
       else {
+        //Loop through all the possible moves (16 is the total possible amount
+        //of moves, counting both column and row, it was just easier to type out than
+        //moves.size() :P), add all the possible moves to the ans
         for (int i = 0; i < 16; i = i + 2) {
           ans += countH(row + moves[i], col + moves[i + 1], level + 1);
         }
       }
+      //Remove the added knight
       remove(row, col);
     }
     return ans;
