@@ -76,9 +76,12 @@ public class KnightBoard{
   //@throws IllegalArgumentException when either parameter is negative or out of bounds
   //@returns true when the board is solvable from the specified starting position
   public boolean solve(int startingRow, int startingCol){
+    //If the board isn't blank, throw an illegal state exception
     if (!isBlank()){
       throw new IllegalStateException("The board must be empty to solve");
     }
+    //If the starting row and starting column is out of bound, throw an illegal
+    //argument exception
     if (startingRow < 0 || startingCol < 0 || startingRow >= rlength || startingCol >= clength){
       throw new IllegalArgumentException("StartingRow or StartingCol is out of bounds");
     }
@@ -88,22 +91,41 @@ public class KnightBoard{
   //@throws IllegalStateException when the board contains non-zero values
   //@throws IllegalArgumentException when either parameter is negative or out of bounds
   //@returns the number of solutions from the starting position specified
-//  public int countSolutions(int startingRow, int startingCol){
-//
-//  }
+  public int countSolutions(int startingRow, int startingCol){
+    //If the board isn't blank, throw an illegal state exception
+    if (!isBlank()){
+      throw new IllegalStateException("The board must be empty to solve");
+    }
+    //If the starting row and starting column is out of bound, throw an illegal
+    //argument exception
+    if (startingRow < 0 || startingCol < 0 || startingRow >= rlength || startingCol >= clength){
+      throw new IllegalArgumentException("StartingRow or StartingCol is out of bounds");
+    }
+    return countH(startingRow, startingCol, 1, 0);
+  }
 
+  public int countH(int row, int col, int level, int ans){
+    
+  }
   //Suggestion
   //Level is the number of the knight
   private boolean solveH(int row, int col, int level){
+    //If the level is greater the the number of possible squares in the board,
+    //then there is a solution
     if (level > (rlength * clength)){
       return true;
     }
+    //If it is possible to add a knight at the spot...
     if (add(row,col,level)){
+      //Loop through all the possible moves (16 is the total possible amount
+      //of moves, counting both column and row, it was just easier to type out than
+      //moves.size() :P), and if one of them runs all the way to the end, return true
       for (int i = 0; i < 16; i = i + 2){
         if (solveH(row + moves[i], col + moves[i + 1],level + 1)){
           return true;
         }
       }
+      //If not, remove the knight from that spot and return false
       remove(row, col);
     }
     return false;
