@@ -3,8 +3,7 @@ public class KnightBoard{
   private int[][] board; //The board returned
   private int rlength; //Row length
   private int clength; //Column length
-  private int[] moves = new int[16];
-  moves = {1,2,1,-2,-1,2,-1,-2,2,1,2,-1,-2,1,-2,-1};
+  private int[] moves = new int[]{1,2,1,-2,-1,2,-1,-2,2,1,2,-1,-2,1,-2,-1};
 
   //@throws IllegalArgumentException when either parameter is <= 0.
   //initialize the board to the correct size and make them all 0's
@@ -100,25 +99,12 @@ public class KnightBoard{
       return true;
     }
     board[row][col] = level;
-    if (row + 2 < rlength){
-      if (col - 1 >= 0){
-        return solveH(row + 2, col - 1, level + 1);
-      }
-      if (col + 1 < clength){
-        return solveH(row + 2, col + 1, level + 1);
-      }
-    }
-    if (row - 2 >= 0){
-      if (col - 1 >= 0){
-        return solveH(row - 2, col - 1, level + 1);
-      }
-      if (col + 1 < clength){
-        return solveH(row - 2, col + 1, level + 1);
-      }
-    }
+    
     return false;
   }
+  public boolean add(int row, int col, int level){
 
+  }
   public void main(String[] args){
     KnightBoard test = new KnightBoard(5,5);
     System.out.println(solve(3,3));
