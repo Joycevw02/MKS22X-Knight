@@ -98,8 +98,13 @@ public class KnightBoard{
     if (level > (rlength * clength)){
       return true;
     }
-    board[row][col] = level;
-
+    if (add(row,col,level)){
+      for (int i = 0; i < 16; i = i + 2){
+        if (solveH(row + moves[i], col + moves[i + 1],level + 1)){
+          return true;
+        }
+      }
+    }
     return false;
   }
 
@@ -133,9 +138,5 @@ public class KnightBoard{
       }
     }
     return false;
-  }
-  public void main(String[] args){
-    KnightBoard test = new KnightBoard(5,5);
-    System.out.println(solve(3,3));
   }
 }
