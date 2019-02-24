@@ -99,11 +99,23 @@ public class KnightBoard{
       return true;
     }
     board[row][col] = level;
-    
+
     return false;
   }
   public boolean add(int row, int col, int level){
-
+    //If the row and column is within the board...
+    if (row >= 0 && row < rlength && col >= 0 && col < clength){
+      //Check if its a valid space to place a knight and if so,
+      //change the value at the spot to the current level
+      if (board[row][col] == 0){
+        board[row][col] = level;
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+    return false;
   }
   public void main(String[] args){
     KnightBoard test = new KnightBoard(5,5);
