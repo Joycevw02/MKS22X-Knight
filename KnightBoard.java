@@ -101,11 +101,18 @@ public class KnightBoard{
     if (startingRow < 0 || startingCol < 0 || startingRow >= rlength || startingCol >= clength){
       throw new IllegalArgumentException("StartingRow or StartingCol is out of bounds");
     }
-    return countH(startingRow, startingCol, 1, 0);
+    return countH(startingRow, startingCol, 1);
   }
 
-  public int countH(int row, int col, int level, int ans){
-    
+  public int countH(int row, int col, int level){
+    int ans = 0;
+    if (level > (rlength * clength)){
+      return 1;
+    }
+    for (int i = 0; i < 16; i = i + 2){
+      ans += countH(row + moves[i], col + moves[i + 1], level + 1);
+    }
+    return ans;
   }
   //Suggestion
   //Level is the number of the knight
