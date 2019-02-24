@@ -120,7 +120,19 @@ public class KnightBoard{
   }
 
   public boolean remove(int row, int col){
-    
+    //If the row and column is within the board...
+    if (row >= 0 && row < rlength && col >= 0 && col < clength){
+      //Check if there is a knight at the spot, and if so, replace
+      //the value at the spot with a 0, removing the knight
+      if (board[row][col] !=0){
+        board[row][col] = 0;
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+    return false;
   }
   public void main(String[] args){
     KnightBoard test = new KnightBoard(5,5);
