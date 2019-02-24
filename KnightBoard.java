@@ -106,11 +106,18 @@ public class KnightBoard{
 
   public int countH(int row, int col, int level){
     int ans = 0;
-    if (level > (rlength * clength)){
-      return 1;
-    }
-    for (int i = 0; i < 16; i = i + 2){
-      ans += countH(row + moves[i], col + moves[i + 1], level + 1);
+    //If it is possible to add a knight at this posiion....
+    if (add(row, col, level)) {
+      if (level > (rlength * clength)){
+        remove(row, col);
+        return 1;
+      }
+      else {
+        for (int i = 0; i < 16; i = i + 2) {
+          ans += countH(row + moves[i], col + moves[i + 1], level + 1);
+        }
+      }
+      remove(row, col);
     }
     return ans;
   }
